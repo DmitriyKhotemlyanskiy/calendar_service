@@ -2,6 +2,7 @@ package main
 
 //http://localhost:8081/gcalendar_service - redirect URL
 import (
+	"calendar/config"
 	"calendar/entities"
 	"fmt"
 	"time"
@@ -28,8 +29,8 @@ func availableDays(days int) []time.Time {
 
 func main() {
 	//go server()
-	//client := config.Auth()
-	//srv := config.GetService(client)
+	client := config.Auth()
+	srv := config.GetService(client)
 
 	//event := &calendar.Event{
 	//	Summary:     "Google I/O 2024",
@@ -53,30 +54,33 @@ func main() {
 	//}
 	//fmt.Printf("Event created: %s\n", event.HtmlLink)
 
-	//items := entities.Calendar{}.GetUpcomingEvents(srv)
-	//for _, item := range items {
-	//	date := item.Start.DateTime
-	//	end := item.End.DateTime
-	//	if date == "" {
-	//		date = item.Start.Date
-	//		end = item.End.Date
-	//	}
+	items := entities.Calendar{}.GetUpcomingEvents(srv)
+	for _, item := range items {
+		date := item.Start.DateTime
+		end := item.End.DateTime
+		if date == "" {
+			date = item.Start.Date
+			end = item.End.Date
+		}
 
-	//	fmt.Printf("%v (%v) start time: %v - end time: %v\n", item.Summary, item.Description, date, end)
-	//	startdata := entities.NewDateTime(date)
-	//	enddata := entities.NewDateTime(end)
-	date := "2024-08-04T23:00:00+03:00"
-	end := "2024-08-05T00:15:00+03:00"
-	fmt.Printf("start time: 2024-08-04T23:00:00+03:00 - end time: 2024-08-05T00:15:00+03:00\n")
-	startdata := entities.NewDateTime(date)
-	enddata := entities.NewDateTime(end)
-	fmt.Println(enddata.GetDate())
-	fmt.Println(enddata.GetDateUTC())
-	fmt.Println(enddata.AddTime(startdata.TimeDifference(*enddata)))
-	fmt.Println(enddata.GetDate())
-	fmt.Println(enddata.GetDayStr())
-	fmt.Println(enddata.GetMonthStr())
-	fmt.Println(enddata.GetYearStr())
-	//}
+		fmt.Printf("%v (%v) start time: %v - end time: %v\n", item.Summary, item.Description, date, end)
+		//	startdata := entities.NewDateTime(date)
+		//	enddata := entities.NewDateTime(end)
+		//date := "2024-08-04T23:00:00+03:00"
+		//end := "2024-08-05T00:15:00+03:00"
+		//fmt.Printf("start time: 2024-08-04T23:00:00+03:00 - end time: 2024-08-05T00:15:00+03:00\n")
+		////startdata := entities.NewDateTime(date)
+		//enddata := entities.NewDateTime(end)
+		//fmt.Println(enddata.GetDate())
+		//fmt.Println(enddata.GetDateUTC())
+		////fmt.Println(enddata.AddTime(startdata.TimeDifference(*enddata)))
+		//fmt.Println(enddata.GetDate())
+		//fmt.Println(enddata.GetDayStr())
+		//fmt.Println(enddata.GetMonthStr())
+		//fmt.Println(enddata.GetYearStr())
+		//}
 
+	}
+	availableTimes := entities.FindAvailableTimes(items)
+	fmt.Println("Available times:", availableTimes)
 }
