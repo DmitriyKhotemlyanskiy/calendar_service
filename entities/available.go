@@ -3,9 +3,6 @@ package entities
 import (
 	"calendar/config"
 	"strconv"
-	"time"
-
-	"google.golang.org/api/calendar/v3"
 )
 
 type AvailableTime struct {
@@ -13,6 +10,7 @@ type AvailableTime struct {
 	MeetingDuration int64  //MINUTES
 	WorkTimeFrom    string //EXAMPLE -> "15:04"
 	WorkTimeTo      string //EXAMPLE -> "18:00"
+	Days            []Day
 }
 
 func getInt(str string) int64 {
@@ -29,40 +27,7 @@ func InitAvailableTime() *AvailableTime {
 	}
 }
 
-func FindAvailableTimes(events []*calendar.Event) []string {
-	var availableTime *AvailableTime
-	availableTime = InitAvailableTime()
-	var availableTimes []string
-	var slotDuration = time.Duration(availableTime.MeetingDuration) * time.Minute
-
-	// Устанавливаем начальное и конечное время для анализа
-	workingStart, _ := time.Parse("15:04", availableTime.WorkTimeFrom) // Начало рабочего дня
-	workingEnd, _ := time.Parse("15:04", availableTime.WorkTimeTo)     // Конец рабочего дня
-
-	for i := 0; i <= len(events); i++ {
-		var currentEnd time.Time
-		// Определяем начало и конец текущего слота
-		if i == len(events) {
-			currentEnd = workingEnd
-		} else {
-			currentEnd, _ = time.Parse(time.RFC3339, events[i].Start.DateTime)
-		}
-
-		// Если есть временной интервал до следующего события
-		for workingStart.Before(currentEnd) && workingStart.Add(slotDuration).Before(currentEnd) {
-
-			availableTimes = append(availableTimes, workingStart.Format("15:04"))
-			workingStart = workingStart.Add(slotDuration)
-			if workingStart.Format("15:04") == availableTime.WorkTimeTo || workingStart.Format("15:04") == "00:00" {
-				break
-			}
-		}
-
-		// Обновляем рабочее время после события
-		if i < len(events) {
-			workingStart, _ = time.Parse(time.RFC3339, events[i].End.DateTime)
-		}
-	}
-
-	return availableTimes
-}
+//func FindAvailableTimes(events []*calendar.Event) []string {
+//	//availableTime := InitAvailableTime()
+//
+//}
