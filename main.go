@@ -81,12 +81,9 @@ func main() {
 		//}
 
 	}
-	//availableTimes := entities.FindAvailableTimes(items)
-	//fmt.Println("Available times:", availableTimes)
-	for i := 0; i < len(items); i++ {
-		t, _ := time.Parse(time.RFC3339, items[i].Start.DateTime)
-		day := entities.InitDay(t)
-		fmt.Println(day.Date)
-		fmt.Println(day.TimesArr)
+	availableTimes := entities.InitAvailableTime()
+	for _, day := range availableTimes.Days {
+		fmt.Println(day)
 	}
+
 }

@@ -3,14 +3,11 @@ package entities
 import (
 	"calendar/config"
 	"strconv"
+	"time"
 )
 
 type AvailableTime struct {
-	DaysInterval    int64  //DAYS
-	MeetingDuration int64  //MINUTES
-	WorkTimeFrom    string //EXAMPLE -> "15:04"
-	WorkTimeTo      string //EXAMPLE -> "18:00"
-	Days            []Day
+	Days []Day
 }
 
 func getInt(str string) int64 {
@@ -19,15 +16,21 @@ func getInt(str string) int64 {
 }
 
 func InitAvailableTime() *AvailableTime {
+	DaysInterval := getInt(config.GetFromEnv("DAYS_INTERVAL"))
+	var days []Day
+	dateTimeNow := time.Now()
+	for i := 0; i < int(DaysInterval); i++ {
+		day := InitDay(dateTimeNow)
+		days = append(days, *day)
+		dateTimeNow = dateTimeNow.AddDate(0, 0, 1)
+	}
+	//***Добавить округление времени для следующего дня!!!!
 	return &AvailableTime{
-		DaysInterval:    getInt(config.GetFromEnv("DAYS_INTERVAL")),
-		MeetingDuration: getInt(config.GetFromEnv("MEETING_DURATION")),
-		WorkTimeFrom:    config.GetFromEnv("WORK_TIME_FROM"),
-		WorkTimeTo:      config.GetFromEnv("WORK_TIME_TO"),
+		Days: days,
 	}
 }
 
 //func FindAvailableTimes(events []*calendar.Event) []string {
-//	//availableTime := InitAvailableTime()
+//	availableTime := InitAvailableTime()
 //
 //}
