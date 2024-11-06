@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/joho/godotenv"
 	"google.golang.org/api/calendar/v3"
@@ -28,4 +29,13 @@ func GetService(client *http.Client) *calendar.Service {
 		log.Fatalf("Unable to retrieve Calendar client: %v", err)
 	}
 	return srv
+}
+
+func StartStop(timeNow time.Time) (startWork, endWork time.Time) {
+	yyyy, mm, dd := timeNow.Date()
+	startWork, _ = time.Parse("15:04", GetFromEnv("WORK_TIME_FROM"))
+	startWork = time.Date(yyyy, mm, dd, startWork.Hour(), startWork.Minute(), 0, 0, timeNow.Location())
+	endWork, _ = time.Parse("15:04", GetFromEnv("WORK_TIME_TO"))
+	endWork = time.Date(yyyy, mm, dd, endWork.Hour(), endWork.Minute(), 0, 0, timeNow.Location())
+	return startWork, endWork
 }
