@@ -53,7 +53,7 @@ func (d Day) CompareDate(date string) int {
 	}
 	return 0
 }
-
+//Compare time d.Day.TimesArr[index] with date. If TimesArr[index] < date -> retrun -1, if TimesArr[index] == date -> return 0, if TimesArr[index] > date -> return 1
 func (d Day) CompareTime(date string, index int) int {
 	newTime, _ := time.Parse(time.RFC3339, date)
 	if strings.Compare(d.TimesArr[index], newTime.Format("15:04")) < 0 {
@@ -63,15 +63,28 @@ func (d Day) CompareTime(date string, index int) int {
 	}
 	return 0
 }
-func (d Day) FindAvailableTimeInDay(events []*calendar.Event) {
+
+func (d *Day) FindAvailableTimeInDay(events []*calendar.Event) {
 	var startEvent string
 	var endEvent string
+	var newTimesArr []string
+	start := 0
 	for _, event := range events {
 		startEvent = event.Start.Date
 		endEvent = event.End.Date
 		if d.CompareDate(startEvent) == 0 {
-			for i, j := 0, 0; i < len(d.TimesArr); i++ {
-				//***найти все свободные времена между встречами!!!
+			for ; start < len(d.TimesArr); {
+				if CompareTime(startEvent, start) < 0 && CompareTime(endEvent, start) < 0 {
+					newTimesArr = append(newTimesArr, d.TimesArr[start])
+					start++
+				} else if CompareTime(startEvent, start) == 0 && CompareTime(endEvent, start) < 0 {
+					strat++
+					continue
+				} else if CompareTime(startEvent, start) > 0 && CompareTime(endEvent, start) == 0 {
+					newTimesArr = append(newTimesArr, d.TimesArr[start])
+					start++
+					break
+				}
 			}
 		}
 	}

@@ -45,5 +45,6 @@ func initAvailableTime() *AvailableTime {
 
 func FindAvailableTimes(events []*calendar.Event) *AvailableTime {
 	availableTime := initAvailableTime()
-
+	availableTime.Days.FindAvailableTimeInDay(events)
+	return &availableTime
 }

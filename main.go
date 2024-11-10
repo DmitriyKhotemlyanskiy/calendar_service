@@ -81,7 +81,7 @@ func main() {
 		//}
 
 	}
-	availableTimes := entities.InitAvailableTime()
+	availableTimes := entities.FindAvailableTimes()
 	for _, day := range availableTimes.Days {
 		fmt.Println(day)
 	}
