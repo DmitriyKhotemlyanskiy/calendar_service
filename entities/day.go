@@ -2,6 +2,7 @@ package entities
 
 import (
 	"calendar/config"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -53,7 +54,8 @@ func (d Day) CompareDate(date string) int {
 	}
 	return 0
 }
-//Compare time d.Day.TimesArr[index] with date. If TimesArr[index] < date -> retrun -1, if TimesArr[index] == date -> return 0, if TimesArr[index] > date -> return 1
+
+// Compare time d.Day.TimesArr[index] with date. If TimesArr[index] < date -> retrun -1, if TimesArr[index] == date -> return 0, if TimesArr[index] > date -> return 1
 func (d Day) CompareTime(date string, index int) int {
 	newTime, _ := time.Parse(time.RFC3339, date)
 	if strings.Compare(d.TimesArr[index], newTime.Format("15:04")) < 0 {
@@ -70,17 +72,18 @@ func (d *Day) FindAvailableTimeInDay(events []*calendar.Event) {
 	var newTimesArr []string
 	start := 0
 	for _, event := range events {
-		startEvent = event.Start.Date
-		endEvent = event.End.Date
+		startEvent = event.Start.DateTime
+		endEvent = event.End.DateTime
+		fmt.Println("Start time event: ", startEvent, "End time event: ", endEvent)
 		if d.CompareDate(startEvent) == 0 {
-			for ; start < len(d.TimesArr); {
-				if CompareTime(startEvent, start) < 0 && CompareTime(endEvent, start) < 0 {
+			for start < len(d.TimesArr) {
+				if d.CompareTime(startEvent, start) < 0 && d.CompareTime(endEvent, start) < 0 {
 					newTimesArr = append(newTimesArr, d.TimesArr[start])
 					start++
-				} else if CompareTime(startEvent, start) == 0 && CompareTime(endEvent, start) < 0 {
-					strat++
+				} else if d.CompareTime(startEvent, start) == 0 && d.CompareTime(endEvent, start) < 0 {
+					start++
 					continue
-				} else if CompareTime(startEvent, start) > 0 && CompareTime(endEvent, start) == 0 {
+				} else if d.CompareTime(startEvent, start) > 0 && d.CompareTime(endEvent, start) == 0 {
 					newTimesArr = append(newTimesArr, d.TimesArr[start])
 					start++
 					break
@@ -88,4 +91,6 @@ func (d *Day) FindAvailableTimeInDay(events []*calendar.Event) {
 			}
 		}
 	}
+	fmt.Println("New Day ARR: ", newTimesArr)
+	d.TimesArr = newTimesArr
 }
