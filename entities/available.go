@@ -9,7 +9,7 @@ import (
 )
 
 type AvailableTime struct {
-	Days []Day
+	Days []Day `json:"days"`
 }
 
 func getInt(str string) int64 {
@@ -25,7 +25,6 @@ func roundToNextDay(timeNow time.Time) time.Time {
 
 func initAvailableTime() *AvailableTime {
 	DaysInterval := getInt(config.GetFromEnv("DAYS_INTERVAL"))
-
 	var days []Day
 	dateTimeNow := time.Now()
 	startWork, endWork := config.StartStop(dateTimeNow)

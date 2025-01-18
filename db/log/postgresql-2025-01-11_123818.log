@@ -1,0 +1,180 @@
+2025-01-11 12:38:18.822 GMT [8308] LOG:  database system was shut down at 2024-12-30 18:24:21 GMT
+2025-01-11 12:43:18.831 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 12:43:18.840 GMT [11168] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.002 s, total=0.010 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1F3F8D8, redo lsn=0/1F3F880
+2025-01-11 13:42:12.979 GMT [19220] ERROR:  value "98765000000" is out of range for type integer
+2025-01-11 13:42:12.979 GMT [19220] CONTEXT:  unnamed portal parameter $2 = '...'
+2025-01-11 13:42:12.979 GMT [19220] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) VALUES ($1, $2, $3, $4, $5, $6)
+2025-01-11 13:42:52.816 GMT [19096] ERROR:  value "98765000000" is out of range for type integer
+2025-01-11 13:42:52.816 GMT [19096] CONTEXT:  unnamed portal parameter $2 = '...'
+2025-01-11 13:42:52.816 GMT [19096] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) VALUES ($1, $2, $3, $4, $5, $6)
+2025-01-11 13:58:07.433 GMT [13828] ERROR:  value "98765000000" is out of range for type integer
+2025-01-11 13:58:07.433 GMT [13828] CONTEXT:  unnamed portal parameter $2 = '...'
+2025-01-11 13:58:07.433 GMT [13828] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) VALUES ($1, $2, $3, $4, $5, $6)
+2025-01-11 13:58:07.449 GMT [13828] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:02:39.626 GMT [18896] ERROR:  column "fr9begcjp4ddkam558h5oha094" does not exist at character 82
+2025-01-11 14:02:39.626 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) VALUES ("fr9begcjp4ddkam558h5oha094",98765000000,"29 November 2024","12:00","17:00","Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:05:16.807 GMT [18896] ERROR:  column "fr9begcjp4ddkam558h5oha094" does not exist at character 82
+2025-01-11 14:05:16.807 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) VALUES ("fr9begcjp4ddkam558h5oha094",98765000000,"29 November 2024","12:00","17:00","Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:05:55.831 GMT [18896] ERROR:  column "fr9begcjp4ddkam558h5oha094" does not exist at character 90
+2025-01-11 14:05:55.831 GMT [18896] STATEMENT:  INSERT INTO events (indx, event_id, user_id, date, start_time, end_time, text) VALUES (1,"fr9begcjp4ddkam558h5oha094",98765000000,"29 November 2024","12:00","17:00","Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:06:48.557 GMT [18896] ERROR:  relation "telegram_users_db.events" does not exist at character 13
+2025-01-11 14:06:48.557 GMT [18896] STATEMENT:  INSERT INTO telegram_users_db.events (indx, event_id, user_id, date, start_time, end_time, text) VALUES (1,"fr9begcjp4ddkam558h5oha094",98765000000,"29 November 2024","12:00","17:00","Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:08:27.590 GMT [18896] ERROR:  column "fr9begcjp4ddkam558h5oha094" does not exist at character 83
+2025-01-11 14:08:27.590 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) 
+	VALUES ("fr9begcjp4ddkam558h5oha094", 98765000000, "29 November 2024", "12:00", "17:00", "Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:08:46.452 GMT [18896] ERROR:  column "fr9begcjp4ddkam558h5oha094" does not exist at character 83
+2025-01-11 14:08:46.452 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) 
+	VALUES (fr9begcjp4ddkam558h5oha094, 98765000000, "29 November 2024", "12:00", "17:00", "Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:08:55.873 GMT [18896] ERROR:  syntax error at or near "," at character 111
+2025-01-11 14:08:55.873 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) 
+	VALUES (`fr9begcjp4ddkam558h5oha094`, 98765000000, "29 November 2024", "12:00", "17:00", "Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:09:12.928 GMT [18896] ERROR:  column "29 November 2024" does not exist at character 126
+2025-01-11 14:09:12.928 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) 
+	VALUES ('fr9begcjp4ddkam558h5oha094', 98765000000, "29 November 2024", "12:00", "17:00", "Test from PostMan, creating a new Event");
+	
+	SELECT * FROM events;
+2025-01-11 14:09:44.304 GMT [18896] ERROR:  integer out of range
+2025-01-11 14:09:44.304 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) 
+	VALUES ('fr9begcjp4ddkam558h5oha094', 98765000000, '29 November 2024', '12:00', '17:00', 'Test from PostMan, creating a new Event');
+	
+	SELECT * FROM events;
+2025-01-11 14:10:06.554 GMT [18896] ERROR:  integer out of range
+2025-01-11 14:10:06.554 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) 
+	VALUES ('fr9begcjp4ddkam558h5oha094', 9876500000, '29 November 2024', '12:00', '17:00', 'Test from PostMan, creating a new Event');
+	
+	SELECT * FROM events;
+2025-01-11 14:12:05.889 GMT [18896] ERROR:  duplicate key value violates unique constraint "events_pkey"
+2025-01-11 14:12:05.889 GMT [18896] DETAIL:  Key (event_id)=(fr9begcjp4ddkam558h5oha094) already exists.
+2025-01-11 14:12:05.889 GMT [18896] STATEMENT:  INSERT INTO events (event_id, user_id, date, start_time, end_time, text) 
+	VALUES ('fr9begcjp4ddkam558h5oha094', 987650000, '29 November 2024', '12:00', '17:00', 'Test from PostMan, creating a new Event');
+	
+	SELECT * FROM events;
+	
+	DELETE FROM events
+	WHERE event_id = 'fr9begcjp4ddkam558h5oha094';
+	
+	SELECT * FROM events;
+2025-01-11 14:13:14.397 GMT [1916] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:13:49.514 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 14:13:50.174 GMT [11168] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.652 s, sync=0.003 s, total=0.660 s; sync files=5, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=1 kB; lsn=0/1F3FEF0, redo lsn=0/1F3FE98
+2025-01-11 14:18:49.181 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 14:18:49.512 GMT [11168] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.324 s, sync=0.003 s, total=0.332 s; sync files=4, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=1 kB; lsn=0/1F404B0, redo lsn=0/1F40458
+2025-01-11 14:20:29.612 GMT [16668] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:23:49.528 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 14:23:49.861 GMT [11168] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.326 s, sync=0.003 s, total=0.334 s; sync files=4, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=1 kB; lsn=0/1F40BA0, redo lsn=0/1F40B48
+2025-01-11 14:38:49.891 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 14:38:50.216 GMT [11168] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.318 s, sync=0.002 s, total=0.326 s; sync files=4, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=1 kB; lsn=0/1F41228, redo lsn=0/1F411D0
+2025-01-11 14:40:47.079 GMT [3000] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:40:47.079 GMT [12420] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:40:47.079 GMT [17120] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:40:47.079 GMT [18316] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:40:47.079 GMT [18116] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:40:47.079 GMT [9040] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:43:49.226 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 14:43:49.560 GMT [11168] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.327 s, sync=0.003 s, total=0.334 s; sync files=4, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=2 kB; lsn=0/1F41C68, redo lsn=0/1F41C10
+2025-01-11 14:47:15.681 GMT [1920] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 14:47:15.681 GMT [7872] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:18:49.615 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 15:18:50.166 GMT [11168] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.542 s, sync=0.003 s, total=0.551 s; sync files=6, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=2 kB; lsn=0/1F42518, redo lsn=0/1F424C0
+2025-01-11 15:22:15.757 GMT [18044] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:22:15.757 GMT [19036] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:22:15.757 GMT [10592] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:23:49.167 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 15:23:49.280 GMT [11168] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.107 s, sync=0.002 s, total=0.114 s; sync files=2, longest=0.002 s, average=0.001 s; distance=1 kB, estimate=2 kB; lsn=0/1F42B88, redo lsn=0/1F42B30
+2025-01-11 15:38:31.871 GMT [5980] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.749 GMT [19332] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.749 GMT [16636] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.749 GMT [18836] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.749 GMT [12348] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.749 GMT [18248] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.750 GMT [10756] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.750 GMT [5236] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:41:50.750 GMT [10312] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 15:43:49.311 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 15:43:49.964 GMT [11168] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.644 s, sync=0.004 s, total=0.653 s; sync files=7, longest=0.001 s, average=0.001 s; distance=4 kB, estimate=4 kB; lsn=0/1F43C28, redo lsn=0/1F43BD0
+2025-01-11 16:09:05.811 GMT [18896] ERROR:  syntax error at or near "INNER" at character 160
+2025-01-11 16:09:05.811 GMT [18896] STATEMENT:  SELECT b.event_id, b.user_id, a.first_name, a.last_name, a.user_name, a.user_email, a.user_tel_num, b.date, b.start_time, b.end_time, b.text
+	FROM users a
+	LEFT INNER JOIN events b ON a.id = 987650000;
+	
+	
+2025-01-11 16:11:40.594 GMT [18896] ERROR:  syntax error at or near "INNER" at character 161
+2025-01-11 16:11:40.594 GMT [18896] STATEMENT:  SELECT b.event_id, b.user_id, a.first_name, a.last_name, a.user_name, a.user_email, a.user_tel_num, b.date, b.start_time, b.end_time, b.text
+	FROM users a
+	RIGHT INNER JOIN events b ON a.id = b.user_id
+	AND a.id = 987650000;
+	
+	
+2025-01-11 17:10:43.009 GMT [12244] ERROR:  invalid input syntax for type integer: ""
+2025-01-11 17:10:43.009 GMT [12244] CONTEXT:  unnamed portal parameter $1 = ''
+2025-01-11 17:10:43.009 GMT [12244] STATEMENT:  SELECT b.event_id, b.user_id, a.first_name, a.last_name, a.user_name, a.user_email, a.user_tel_num, b.date, b.start_time, b.end_time, b.text
+								FROM users a
+								LEFT JOIN events b ON a.id = b.user_id
+								WHERE a.id = $1
+2025-01-11 17:18:50.107 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 17:18:50.220 GMT [11168] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.107 s, sync=0.002 s, total=0.114 s; sync files=2, longest=0.002 s, average=0.001 s; distance=2 kB, estimate=3 kB; lsn=0/1F44650, redo lsn=0/1F445F8
+2025-01-11 17:23:02.099 GMT [1956] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:23:02.099 GMT [5032] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:23:02.099 GMT [18896] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:23:50.222 GMT [11168] LOG:  checkpoint starting: time
+2025-01-11 17:23:50.889 GMT [11168] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.659 s, sync=0.004 s, total=0.668 s; sync files=7, longest=0.001 s, average=0.001 s; distance=4 kB, estimate=4 kB; lsn=0/1F459D8, redo lsn=0/1F45980
+2025-01-11 17:24:08.177 GMT [264] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.177 GMT [15040] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.177 GMT [3628] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.177 GMT [18280] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.177 GMT [17196] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.177 GMT [1068] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.177 GMT [6244] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.177 GMT [7448] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.178 GMT [9440] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-11 17:24:08.178 GMT [15088] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

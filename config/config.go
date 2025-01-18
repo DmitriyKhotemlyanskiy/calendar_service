@@ -2,7 +2,6 @@ package config
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -18,17 +17,17 @@ func GetFromEnv(varName string) string {
 	// load .env file
 	err := godotenv.Load(".env")
 	if err != nil {
-		fmt.Print("Error loading .env file")
+		log.Fatalln("Error loading .env file")
 	}
 	return os.Getenv(varName)
 }
 
-func GetService(client *http.Client) *calendar.Service {
+func GetService(client *http.Client) (*calendar.Service, error) {
 	srv, err := calendar.NewService(context.Background(), option.WithHTTPClient(client))
 	if err != nil {
 		log.Fatalf("Unable to retrieve Calendar client: %v", err)
 	}
-	return srv
+	return srv, err
 }
 
 func StartStop(timeNow time.Time) (startWork, endWork time.Time) {
