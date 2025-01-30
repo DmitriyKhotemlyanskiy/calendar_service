@@ -178,3 +178,13 @@
 	
 2025-01-11 17:24:08.178 GMT [15088] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
 	
+2025-01-18 09:54:40.747 GMT [11168] LOG:  checkpoint starting: time
+2025-01-18 09:54:40.850 GMT [11168] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.097 s, sync=0.002 s, total=0.104 s; sync files=2, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=4 kB; lsn=0/1F46340, redo lsn=0/1F462E8
+2025-01-18 10:05:09.984 GMT [11388] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-18 10:05:09.984 GMT [10760] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-18 10:08:19.672 GMT [3500] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-18 10:08:19.672 GMT [12372] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

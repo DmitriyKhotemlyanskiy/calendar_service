@@ -1,0 +1,15 @@
+2025-01-29 09:55:58.164 GMT [8988] LOG:  database system was shut down at 2025-01-29 09:55:27 GMT
+2025-01-29 10:00:58.147 GMT [6412] LOG:  checkpoint starting: time
+2025-01-29 10:00:58.158 GMT [6412] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.002 s, total=0.011 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1F4A710, redo lsn=0/1F4A6B8
+2025-01-29 10:30:54.647 GMT [15668] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-29 10:30:54.647 GMT [6456] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-29 10:30:54.648 GMT [6464] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-29 10:30:54.648 GMT [11420] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-29 10:30:54.648 GMT [16856] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-01-29 10:31:45.447 GMT [6412] LOG:  checkpoint starting: time
+2025-01-29 10:31:45.788 GMT [6412] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.331 s, sync=0.003 s, total=0.341 s; sync files=4, longest=0.002 s, average=0.001 s; distance=4 kB, estimate=4 kB; lsn=0/1F4B938, redo lsn=0/1F4B8E0
