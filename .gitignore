@@ -1,0 +1,5 @@
+config/config.go
+config/db.go
+.env
+go.mod
+go.sum
