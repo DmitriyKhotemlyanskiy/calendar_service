@@ -3,3 +3,4 @@ config/db.go
 .env
 go.mod
 go.sum
+ProTattoo.txt
